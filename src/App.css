@@ -7,41 +7,79 @@
 .movie-list {
   flex: 1;
   background-color: black;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
 }
 
 .movie-list ul {
-  padding: 10px;
+  padding-right: 10px;
+  flex: 1;
+  overflow: auto;
 }
 
 .movie-list h2 {
   color: white;
+  padding-bottom: 10px;
 }
 
 .movie-summary {
   flex: 2;
   background-color: yellow;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
 }
 .movie-favList {
   flex: 1;
   background-color: orange;
 }
 
-.movie-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background-color: white;
-  margin-bottom: 10px;
+.loading {
+  color: white;
+  text-align: center;
+  padding: 6px;
 }
 
-.movie-item:last-child {
-  margin-bottom: 0;
+.pick-one {
+  color: white;
+  background-color: black;
+  font-size: 1rem;
+  text-align: center;
+  padding: 1rem;
+  flex: 1;
 }
 
-.movie-item img {
-  width: 100px;
+button {
+  background-color: black;
+  border: 0;
+  color: white;
+  padding: 0 1rem;
+  height: 32px;
+  cursor: pointer;
 }
 
-.movie-info {
-  flex: 2;
+button:hover {
+  background-color: orange;
+  color: black;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: orange;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
