@@ -1,0 +1,47 @@
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+
+.movie-list {
+  flex: 1;
+  background-color: black;
+}
+
+.movie-list ul {
+  padding: 10px;
+}
+
+.movie-list h2 {
+  color: white;
+}
+
+.movie-summary {
+  flex: 2;
+  background-color: yellow;
+}
+.movie-favList {
+  flex: 1;
+  background-color: orange;
+}
+
+.movie-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: white;
+  margin-bottom: 10px;
+}
+
+.movie-item:last-child {
+  margin-bottom: 0;
+}
+
+.movie-item img {
+  width: 100px;
+}
+
+.movie-info {
+  flex: 2;
+}
