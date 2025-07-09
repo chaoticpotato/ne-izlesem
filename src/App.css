@@ -1,0 +1,62 @@
+.container {
+  height: 100vh;
+  width: 100%;
+  background-color: aquamarine;
+  display: flex;
+  gap: 2rem;
+}
+
+.left-column,
+.right-column {
+  flex: 1;
+  background-color: #fff;
+  padding: 1.5rem;
+  overflow: auto;
+}
+
+.left-column {
+}
+
+.right-column {
+}
+
+.summary-container {
+  flex: 2;
+  align-self: center;
+}
+
+.summary {
+  background-color: #fff;
+  padding: 2rem;
+  display: flex;
+}
+
+.summary img {
+  display: block;
+  width: 30%;
+}
+
+.summary-info {
+  padding: 0.5rem;
+  align-self: center;
+  flex: 1;
+  text-align: center;
+}
+
+.diziBox {
+  border: 1px solid #999;
+  margin-bottom: 1rem;
+  display: flex;
+}
+
+.diziBox img {
+  display: block;
+  width: 35%;
+}
+
+.diziBox-info {
+  padding: 0.5rem;
+  align-self: center;
+  flex: 1;
+  text-align: center;
+}
