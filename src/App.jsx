@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
 import Detay from "./Detay";
+import DiziEkle from "./DiziEkle";
 import { Switch, Route, Link } from "react-router-dom";
 
 function App() {
@@ -27,10 +28,16 @@ function App() {
 
   // arrayde bir eleman var mı? [1,2,3,4,5] listesinde 4 var mı?
   function handleListemeEkle(eklenecekDizi) {
-    if (listem.includes(eklenecekDizi)) {
-      handleListemdenCikar(eklenecekDizi);
+    const basicDizi = {
+      id: eklenecekDizi.id,
+      name: eklenecekDizi.name,
+      image_thumbnail_path: eklenecekDizi.image_thumbnail_path,
+    };
+
+    if (listem.filter((myDizi) => myDizi.id === basicDizi.id).length > 0) {
+      handleListemdenCikar(basicDizi);
     } else {
-      setListem([eklenecekDizi, ...listem]);
+      setListem([basicDizi, ...listem]);
     }
   }
 
@@ -45,9 +52,12 @@ function App() {
                 ? diziler.map((dizi) => (
                     <div className="diziBox" key={dizi.id}>
                       <img src={dizi.image_thumbnail_path} />
-                      <div className="diziBox-info">
+                      <div className="diziBox-info" data-test="liste-dizi-info">
                         <h3>{dizi.name}</h3>
-                        <button onClick={() => setSeciliDizi(dizi)}>
+                        <button
+                          data-test="button-incele"
+                          onClick={() => setSeciliDizi(dizi)}
+                        >
                           İncele
                         </button>
                       </div>
@@ -84,10 +94,14 @@ function App() {
 
           <div className="right-column">
             <h2>İzleme Listem</h2>
-            <div>
+            <div data-test="listem">
               {listem.length > 0
                 ? listem.map((dizi) => (
-                    <div className="diziBox" key={dizi.id}>
+                    <div
+                      className="diziBox"
+                      key={dizi.id}
+                      data-test="item-listem"
+                    >
                       <img src={dizi.image_thumbnail_path} />
                       <div className="diziBox-info">
                         <h3>{dizi.name}</h3>
@@ -99,10 +113,14 @@ function App() {
                   ))
                 : "İncelediğin dizileri buraya ekleyebilirsin."}
             </div>
+            <Link to="/dizi-ekle">Kendin dizi ekle</Link>
           </div>
         </Route>
         <Route path="/detay/:isim">
-          <Detay />
+          <Detay handleEkle={handleListemeEkle} />
+        </Route>
+        <Route path="/dizi-ekle">
+          <DiziEkle handleEkle={handleListemeEkle} />
         </Route>
       </Switch>
     </div>

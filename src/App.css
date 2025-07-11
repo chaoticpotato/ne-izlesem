@@ -60,3 +60,23 @@
   flex: 1;
   text-align: center;
 }
+
+.detail-wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.details {
+  padding: 2rem;
+  max-width: 600px;
+  background-color: #fff;
+  width: 100%;
+}
+
+.details p {
+  margin: 1rem 0;
+  font-size: 14px;
+}
